@@ -1,6 +1,6 @@
 import Deck from "../src/models/deck";
 
-describe("A suite of tests", function() {
+describe("Deck's tests", function() {
     it("is a deck that should return an array of cards", function() {
 
         let config = {
@@ -26,4 +26,59 @@ describe("A suite of tests", function() {
 
         expect(resultTest.shuffle()).toBeTruthy();
     });
-});
+    it("put selected card at the index in the deck", function() {
+
+        let config = {
+            cards : [
+                'as',
+                'coeur',
+                'pique',
+                'trefle',
+            ]
+        }
+
+        let resultTest = new Deck(config);
+        resultTest.insertAt('other', 2);
+
+        expect(resultTest.cards[2] == 'other').toBeTruthy();
+    });
+    it("get the deck's first card and retrieve it from the deck, return that card", function() {
+
+        let config = {
+            cards : [
+                'as',
+                'coeur',
+                'pique',
+                'trefle',
+            ]
+        }
+
+        let resultTest = new Deck(config);
+
+        let firstCardBeforeWithdraw = resultTest.cards[0];
+
+        resultTest.draw();
+
+        let firstCardAfterWithdraw = resultTest.cards[0];
+
+        expect(resultTest.cards[0] !== firstCardBeforeWithdraw).toBeTruthy();
+        expect(resultTest.cards[0] === firstCardAfterWithdraw).toBeTruthy();
+    });
+    it("return the number of cards in the deck", function() {
+
+        let config = {
+            cards : [
+                'as',
+                'coeur',
+                'pique',
+                'trefle',
+            ]
+        }
+
+        let resultTest = new Deck(config);
+
+        let deckAmount = resultTest.getCardsCount();
+
+        expect(deckAmount).toEqual(resultTest.cards.length);
+    });
+}); 

@@ -1,4 +1,4 @@
-export default class Deck {
+export default class DeckModel {
     
     constructor (config) {
         this.cards = config.cards;
@@ -22,9 +22,16 @@ export default class Deck {
         return array;
     }
 
+    insertAt(cardToPlace, positionNumber) {
+        this.cards.splice(positionNumber, 0, cardToPlace)
+    }
+
     draw () {
+        let firstCard = this.cards.shift();
+        return firstCard;
     }
 
     getCardsCount () {
+        return this.cards.length;
     }
 }
