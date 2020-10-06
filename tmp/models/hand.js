@@ -10,36 +10,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var HandModel = function () {
     function HandModel(config) {
-        var limit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 7;
-
         _classCallCheck(this, HandModel);
 
-        this.limit = limit;
         this.cards = config.cards;
+        this.limit = config.limit || 7;
     }
 
     _createClass(HandModel, [{
         key: "addCard",
         value: function addCard(cardObj) {
-            if (this.cards.length <= this.limit) {
-                if (this.cards.push(cardObj.card)) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
+            if (this.cards.length >= this.limit) {
                 return false;
             }
+            this.cards.push(cardObj);
+
+            return true;
         }
     }, {
         key: "removeCard",
         value: function removeCard(index) {
-            if (index <= this.cards.length - 1) {
-                var withdrawedCard = this.cards.splice(index, 1)[0];
-                return withdrawedCard;
-            } else {
+            if (index > this.cards.length - 1) {
                 return false;
             }
+            return this.cards.splice(index, 1)[0];
         }
     }, {
         key: "getAllCards",

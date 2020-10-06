@@ -64,6 +64,30 @@ describe("Deck's tests", function() {
         expect(resultTest.cards[0] !== firstCardBeforeWithdraw).toBeTruthy();
         expect(resultTest.cards[0] === firstCardAfterWithdraw).toBeTruthy();
     });
+
+    it("get the deck's first card and retrieve it from the deck, return that card2", function() {
+
+        let config = {
+            cards : [
+                'as',
+                'coeur',
+                'pique',
+                'trefle',
+            ]
+        }
+
+        let resultTest = new Deck(config);
+        const firstCard = resultTest.draw();
+
+
+        expect(resultTest.cards).toEqual([
+            'coeur',
+            'pique',
+            'trefle',
+        ]);
+        expect(firstCard).toEqual('as');
+    });
+
     it("return the number of cards in the deck", function() {
 
         let config = {
@@ -79,6 +103,6 @@ describe("Deck's tests", function() {
 
         let deckAmount = resultTest.getCardsCount();
 
-        expect(deckAmount).toEqual(resultTest.cards.length);
+        expect(deckAmount).toEqual(4);
     });
 }); 

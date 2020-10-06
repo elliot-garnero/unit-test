@@ -1,29 +1,24 @@
 export default class HandModel {
     
-    constructor (config, limit = 7) {
-        this.limit = limit;
+    constructor (config) {
         this.cards = config.cards;
+        this.limit = config.limit || 7;
     }
 
     addCard(cardObj) {
-        if(this.cards.length <= this.limit){
-            if(this.cards.push(cardObj.card)){
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
+        if(this.cards.length >= this.limit){
+            return false
         }
+        this.cards.push(cardObj)
+
+        return true
     }
 
     removeCard(index) {
-        if(index <= this.cards.length -1){
-            let withdrawedCard = this.cards.splice(index, 1)[0];
-            return withdrawedCard;
-        } else {
+        if(index > this.cards.length -1){
             return false;
         }
+        return this.cards.splice(index, 1)[0];
     }
 
     getAllCards() {
