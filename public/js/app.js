@@ -18202,26 +18202,54 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Deck = function () {
-    function Deck(config) {
-        _classCallCheck(this, Deck);
+var DeckModel = function () {
+    function DeckModel(config) {
+        _classCallCheck(this, DeckModel);
+
+        this.cards = config.cards;
     }
 
-    _createClass(Deck, [{
+    _createClass(DeckModel, [{
         key: "shuffle",
-        value: function shuffle() {}
+        value: function shuffle() {
+            if (this.shuffleArray(this.cards)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }, {
+        key: "shuffleArray",
+        value: function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+            return array;
+        }
+    }, {
+        key: "insertAt",
+        value: function insertAt(cardToPlace, positionNumber) {
+            this.cards.splice(positionNumber, 0, cardToPlace);
+        }
     }, {
         key: "draw",
-        value: function draw() {}
+        value: function draw() {
+            return this.cards.shift();
+        }
     }, {
         key: "getCardsCount",
-        value: function getCardsCount() {}
+        value: function getCardsCount() {
+            return this.cards.length;
+        }
     }]);
 
-    return Deck;
+    return DeckModel;
 }();
 
-exports.default = Deck;
+exports.default = DeckModel;
 },{}],345:[function(require,module,exports){
 'use strict';
 

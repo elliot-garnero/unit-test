@@ -8,42 +8,43 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DeckModel = function () {
-    function DeckModel(config) {
-        _classCallCheck(this, DeckModel);
+var HandModel = function () {
+    function HandModel(config) {
+        var limit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 7;
 
+        _classCallCheck(this, HandModel);
+
+        this.limit = limit;
         this.cards = config.cards;
     }
 
-    _createClass(DeckModel, [{
-        key: "shuffle",
-        value: function shuffle() {
-            if (this.shuffleArray(this.cards)) {
-                return true;
+    _createClass(HandModel, [{
+        key: "addCard",
+        value: function addCard(cardObj) {
+            if (this.cards.length <= this.limit) {
+                if (this.cards.push(cardObj.card)) {
+                    return true;
+                } else {
+                    return false;
+                }
             } else {
                 return false;
             }
         }
     }, {
-        key: "shuffleArray",
-        value: function shuffleArray(array) {
-            for (var i = array.length - 1; i > 0; i--) {
-                var j = Math.floor(Math.random() * (i + 1));
-                var temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+        key: "removeCard",
+        value: function removeCard(index) {
+            if (index <= this.cards.length - 1) {
+                var withdrawedCard = this.cards.splice(index, 1)[0];
+                return withdrawedCard;
+            } else {
+                return false;
             }
-            return array;
         }
     }, {
-        key: "insertAt",
-        value: function insertAt(cardToPlace, positionNumber) {
-            this.cards.splice(positionNumber, 0, cardToPlace);
-        }
-    }, {
-        key: "draw",
-        value: function draw() {
-            return this.cards.shift();
+        key: "getAllCards",
+        value: function getAllCards() {
+            return this.cards;
         }
     }, {
         key: "getCardsCount",
@@ -52,7 +53,7 @@ var DeckModel = function () {
         }
     }]);
 
-    return DeckModel;
+    return HandModel;
 }();
 
-exports.default = DeckModel;
+exports.default = HandModel;

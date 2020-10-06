@@ -1,7 +1,7 @@
 export default class HandModel {
     
-    constructor (config) {
-        this.limit = config.limit || 7;
+    constructor (config, limit = 7) {
+        this.limit = limit;
         this.cards = config.cards;
     }
 

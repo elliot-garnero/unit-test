@@ -23,12 +23,11 @@ export default class DeckModel {
     }
 
     insertAt(cardToPlace, positionNumber) {
-        this.cards.splice(positionNumber, 0, cardToPlace)
+        this.cards.splice(positionNumber, 0, cardToPlace);
     }
 
     draw () {
-        let firstCard = this.cards.shift();
-        return firstCard;
+        return this.cards.shift();
     }
 
     getCardsCount () {
