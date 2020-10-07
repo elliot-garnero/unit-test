@@ -21,27 +21,54 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Board = function (_EventManager) {
     _inherits(Board, _EventManager);
 
-    function Board() {
+    function Board(life, strength, def) {
         _classCallCheck(this, Board);
 
-        return _possibleConstructorReturn(this, (Board.__proto__ || Object.getPrototypeOf(Board)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Board.__proto__ || Object.getPrototypeOf(Board)).call(this));
+
+        _this.life = life;
+        _this.strength = strength;
+        _this.def = def;
+        _this.target = {};
+        _this.opponent = {};
+        return _this;
     }
 
     _createClass(Board, [{
         key: 'getLife',
-        value: function getLife() {}
+        value: function getLife() {
+            return this.life;
+        }
     }, {
         key: 'getStrength',
-        value: function getStrength() {}
+        value: function getStrength() {
+            return this.strength;
+        }
     }, {
         key: 'getDef',
-        value: function getDef() {}
+        value: function getDef() {
+            return this.def;
+        }
     }, {
         key: 'attack',
-        value: function attack() {}
+        value: function attack(target) {
+            target.receiveAttack(this);
+        }
     }, {
         key: 'receiveAttack',
-        value: function receiveAttack() {}
+        value: function receiveAttack(opponent) {
+            var strikeBack = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+            if (this.life <= 0 || opponent.life <= 0) {
+                return;
+            }
+            this.life -= opponent.strength;
+            if (strikeBack) {
+                opponent.life -= this.def;
+            } else {
+                opponent.receiveAttack(this, true);
+            }
+        }
     }]);
 
     return Board;
