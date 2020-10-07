@@ -46,28 +46,25 @@ export default class Player extends Pawn{
     playCard(position) {
         if (this.hand < position) {
             return false
-        } else {
-            this.board.push(this.hand.splice(position, 1));
-            return true;
         }
+        this.board.push(this.hand.splice(position, 1));
+        return true;
     }
     
     discard(position) {
         if (this.hand < position) {
             return false
-        } else {
-            this.cemetary.push(this.hand.splice(position, 1));
-            return true;
         }
+        this.cemetary.push(this.hand.splice(position, 1));
+        return true;
     }
 
     attack(position, target) {
         if (this.board < position) {
             return false
-        } else {
-            this.board[position].attack(target);
-            return true;
         }
+        this.board[position].attack(target);
+        return true;
     }
 
 }
