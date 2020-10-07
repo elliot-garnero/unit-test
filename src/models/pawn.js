@@ -1,6 +1,6 @@
 import EventManager from '../eventManager';
 
-export default class Board extends EventManager {
+export default class PawnModel extends EventManager {
 
     constructor(life, strength, def) {
         super();

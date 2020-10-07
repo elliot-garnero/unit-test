@@ -1,5 +1,5 @@
 import Deck from './deck';
 
-export default class Cemetary extends Deck {
+export default class CemetaryModel extends Deck {
     
 }

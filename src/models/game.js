@@ -1,6 +1,6 @@
 import EventManager from "../eventManager"
 
-export default class Game extends EventManager {
+export default class GameModel extends EventManager {
     
     constructor (config) {
         super(config);

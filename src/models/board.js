@@ -1,5 +1,5 @@
 import Hand from './hand';
 
-export default class Board extends Hand {
+export default class BoardModel extends Hand {
     
 }

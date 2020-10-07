@@ -3,7 +3,7 @@ import Board from './board';
 import Hand from './hand';
 import Cemetary from './cemetary';
 
-export default class Player extends Pawn{
+export default class PlayerModel extends Pawn{
 
     constructor(config) {
         super(config);
