@@ -16,16 +16,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Cemetary = function (_Deck) {
-    _inherits(Cemetary, _Deck);
+var CemetaryModel = function (_Deck) {
+    _inherits(CemetaryModel, _Deck);
 
-    function Cemetary() {
-        _classCallCheck(this, Cemetary);
+    function CemetaryModel() {
+        _classCallCheck(this, CemetaryModel);
 
-        return _possibleConstructorReturn(this, (Cemetary.__proto__ || Object.getPrototypeOf(Cemetary)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (CemetaryModel.__proto__ || Object.getPrototypeOf(CemetaryModel)).apply(this, arguments));
     }
 
-    return Cemetary;
+    return CemetaryModel;
 }(_deck2.default);
 
-exports.default = Cemetary;
+exports.default = CemetaryModel;

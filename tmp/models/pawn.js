@@ -18,13 +18,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Board = function (_EventManager) {
-    _inherits(Board, _EventManager);
+var PawnModel = function (_EventManager) {
+    _inherits(PawnModel, _EventManager);
 
-    function Board(life, strength, def) {
-        _classCallCheck(this, Board);
+    function PawnModel(life, strength, def) {
+        _classCallCheck(this, PawnModel);
 
-        var _this = _possibleConstructorReturn(this, (Board.__proto__ || Object.getPrototypeOf(Board)).call(this));
+        var _this = _possibleConstructorReturn(this, (PawnModel.__proto__ || Object.getPrototypeOf(PawnModel)).call(this));
 
         _this.life = life;
         _this.strength = strength;
@@ -34,7 +34,7 @@ var Board = function (_EventManager) {
         return _this;
     }
 
-    _createClass(Board, [{
+    _createClass(PawnModel, [{
         key: 'getLife',
         value: function getLife() {
             return this.life;
@@ -71,7 +71,7 @@ var Board = function (_EventManager) {
         }
     }]);
 
-    return Board;
+    return PawnModel;
 }(_eventManager2.default);
 
-exports.default = Board;
+exports.default = PawnModel;
